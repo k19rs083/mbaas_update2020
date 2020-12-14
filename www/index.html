@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="ja">
 <head>
+    <title>mBaaS Update</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
@@ -18,14 +19,14 @@
       uTdata.set(key, value)
       .save()
       .then(function(results){
-        $("#display").removeClass();
-        $("#display").addClass("bg-success");
-        $("#display").html("enter success");
+        $("#display").removeClass()
+        .addClass("bg-success")
+        .html("enter success");
       })
       .catch(function(results){
-        $("#display").removeClass();
-        $("#display").addClass("bg-warning");
-        $("#display").html("enter fail");
+        $("#display").removeClass()
+        .addClass("bg-warning")
+        .html("enter fail");
       })
     }
     function fetchAll() {
@@ -35,15 +36,15 @@
         for(let i=0; i<results.length; i++){
           msg += results[i].get(key) + "<br>";
         }
-        $("#display").removeClass();
-        $("#display").addClass("text-light");
-        $("#display").addClass("bg-primary");
-        $("#display").html(msg);
+        $("#display").removeClass()
+        .addClass("text-light")
+        .addClass("bg-primary")
+        .html(msg);
       })
       .catch(function(error){
-        $("#display").removeClass();
-        $("#display").addClass("bg-warning");
-        $("#display").html("delete fail:" + JSON.stringify(error));
+        $("#display").removeClass()
+        .addClass("bg-warning")
+        .html("delete fail:" + JSON.stringify(error));
       })
     }
     function deleteData() {
@@ -57,14 +58,14 @@
     </script>
 </head>
 <body>
-  <h1 class="text-light bg-secondary">mbaas update</h1>
+  <h1 class="text-light bg-secondary">mBaaS Update</h1>
   <div>
     <input type="text" id="data" placeholder="スコア"> 
     <a onclick="enterData()" class="btn btn-outline-secondary" role="button">Enter</a>
   </div>
   <div>
-    <a onclick="fetchAll()" class="btn btn-outline-secondary" role="buton">Fetch All</a>
-    <a onclick="deleteData()" class="btn btn-outline-primary" role="buton">Delete</a>
+    <a onclick="fetchAll()" class="btn btn-outline-secondary" role="button">Fetch All</a>
+    <a onclick="deleteData()" class="btn btn-outline-primary" role="button">Delete</a>
     <a onclick="countData()" class="btn btn-outline-primary" role="button">Count</a>
     <a onclick="sortData()" class="btn btn-outline-primary" role="button">Sort</a>
   </div>
