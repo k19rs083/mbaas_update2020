@@ -103,6 +103,23 @@
         }
 
         function sortData() {
+            UTdata.order(key, true)
+            .fetchAll()
+            .then(function (results) {
+                let msg = "";
+                for (let i = 0; i < results.length; i++) {
+                    msg += results[i].get(key) + "<br>";
+                }
+                $("#display").removeClass()
+                .addClass("text-light")
+                .addClass("bg-primary")
+                .html(msg);
+            })
+            .catch(function (error) {
+                $("#display").removeClass()
+                .addClass("bg-warning")
+                .html("delete fail: " + JSON.stringify(error));
+            })
         }
     </script>
 </head>
