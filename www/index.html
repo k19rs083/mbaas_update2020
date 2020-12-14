@@ -69,6 +69,22 @@
         }
 
         function updateData() {
+            UTdata.fetch()
+            .then(function (uTData) {
+                let value = parseInt($("#update").val());
+                uTData.set(key, value);
+                return uTData.update();
+            })
+            .then(function (results) {
+                $("#display").removeClass()
+                .addClass("bg-success")
+                .html("update success");
+            })
+            .catch(function (error) {
+                $("#display").removeClass()
+                .addClass("bg-warning")
+                .html("update fail: " + JSON.stringify(error));
+            })
         }
 
         function countData() {
