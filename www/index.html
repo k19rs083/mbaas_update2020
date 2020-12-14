@@ -88,6 +88,18 @@
         }
 
         function countData() {
+            UTdata.count()
+            .fetchAll()
+            .then(function (results) {
+                $("#display").removeClass()
+                .addClass("bg-success")
+                .html(results.count);
+            })
+            .catch(function (error) {
+                $("#display").removeClass()
+                .addClass("bg-warning")
+                .html("count fail: " + JSON.stringify(error));
+            })
         }
 
         function sortData() {
